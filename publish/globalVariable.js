@@ -1,0 +1,1 @@
+window.productVersion = '1.0.0';

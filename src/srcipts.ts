@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { getFileName } from './common';
 
-  const PATTERN = { pattern: '**/{G[0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}' };
+  const PATTERN = { pattern: '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}' };
 
   // 定義模板
   const templates = {
@@ -31,7 +31,7 @@ M99;`
     };
 
 function getTemplatesForFile(fileName: string): any {
-  if (/^G\d{4,6}$/i.test(fileName)) {
+  if (/^[GMT]\d{4,6}$/i.test(fileName)) {
     return templates.G;
   } else if (/^O\d{4}$/i.test(fileName)) {
     return templates.O;

@@ -3,15 +3,30 @@ import { getFileName } from './common';
 
   const PATTERN = { pattern: '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}' };
 
+
+  const macroTemplate = `@MACRO
+// Coding here
+$0`;
+
+  const subCodeTemplate = `@MACRO
+// Status backup
+#103 := #1004; // G90/G91 mode
+#104 := #1000; // G00/G01 mode
+
+// Coding here
+$0
+
+// Status restore
+#1004 := #103; // G90/G91 mode
+#1000 := #104; // G00/G01 mode
+M99;`;
   // 定義模板
   const templates = {
     O: {
       '%@MACRO': {
         label: 'Macro Template',
         detail: 'Macro Template',
-        template: `@MACRO
-// Coding here
-$0`
+        template: macroTemplate,
       }
     },
 
@@ -19,22 +34,36 @@ $0`
       'GCode': {
         label: 'GCode Template',
         detail: 'GCode Template',
-        template: `@MACRO
-// Coding here
-$0
-
-M99;`
+        template: subCodeTemplate,
       }
     },
-
-    
-    };
+    M: {
+      'MCode': {
+        label: 'MCode Template',
+        detail: 'MCode Template',
+        template: subCodeTemplate,
+      }
+    },
+    T: {
+      'TCode': {
+        label: 'TCode Template',
+        detail: 'TCode Template',
+        template: subCodeTemplate,
+      }
+    },
+  };
 
 function getTemplatesForFile(fileName: string): any {
-  if (/^[GMT]\d{4,6}$/i.test(fileName)) {
+  if (/^[G]\d{4,6}$/i.test(fileName)) {
     return templates.G;
   } else if (/^O\d{4}$/i.test(fileName)) {
     return templates.O;
+  }
+  else if (/^M\d{4}$/i.test(fileName)) {
+    return templates.M;
+  }
+  else if (/^T\d{4}$/i.test(fileName)) {
+    return templates.T;
   }
   return {};
 }

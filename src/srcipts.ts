@@ -10,15 +10,15 @@ $0`;
 
   const subCodeTemplate = `@MACRO
 // Status backup
-#103 := #1004; // G90/G91 mode
-#104 := #1000; // G00/G01 mode
+#50 := #1004; // G90/G91 mode
+#51 := #1000; // G00/G01 mode
 
 // Coding here
 $0
 
 // Status restore
-#1004 := #103; // G90/G91 mode
-#1000 := #104; // G00/G01 mode
+G#50; // G90/G91 mode
+G#51; // G00/G01 mode
 M99;`;
   // 定義模板
   const templates = {

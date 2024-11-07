@@ -11,7 +11,13 @@ const generateProvider = (pattern: string, commands: Object, triggerSymbol: stri
                 const item = new vscode.CompletionItem(code, vscode.CompletionItemKind.Snippet);
                 item.detail = details.label ?? code;
                 item.insertText = new vscode.SnippetString(details.snippet);
-                item.documentation = new vscode.MarkdownString(details.description);
+                const refDetails = `ref: ${details.ref}`;
+
+                // check last is ; or not
+                const endOfMacro = details.snippet.slice(-1) === ';' ? '' : ';';
+                item.documentation = new vscode.MarkdownString(
+                    `${details.description}\n${details.ref ? refDetails : ''}${endOfMacro}`
+                );
                 completionItems.push(item);
             }
 

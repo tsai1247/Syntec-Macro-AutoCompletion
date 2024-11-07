@@ -35,7 +35,7 @@ async function setConfig(configName: string, value: any, configTarget: vscode.Co
 }
 
 async function getUserInput(configDisplayName: string, defaultValue: string = ''): Promise<string | null> {
-  vscode.window.showInputBox()
+  vscode.window.showInputBox();
   const value = await vscode.window.showInputBox({
     placeHolder: `請輸入${configDisplayName}`,
     prompt: `請輸入${configDisplayName}`,

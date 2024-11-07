@@ -6,7 +6,9 @@ import { getFileName } from './common';
 
   const macroTemplate = `@MACRO
 // Coding here
-$0`;
+$0
+
+M30;`;
 
   const subCodeTemplate = `@MACRO
 // Status backup

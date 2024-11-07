@@ -1,22 +1,52 @@
 import * as vscode from "vscode";
-import { PATTERN, provideCompletionItems } from "./srcipts";
+import { 
+  GTemplate,
+  MTemplate,
+  TTemplate,
+  OTemplate,
+} from "./macroTemplate";
+import { GCODE_COMMANDS } from "./gCodeCommands";
+import { generateProvider } from "./completionProvider";
 
 /**
  * 啟用插件
  * @param {vscode.ExtensionContext} context - 啟用插件背景數據
  */
 export function activate(context: vscode.ExtensionContext) {
-	// 註冊自動完成提供者
-	const provider = vscode.languages.registerCompletionItemProvider(
-    PATTERN,
-    {
-      provideCompletionItems
-    },
-	  '%' // 觸發字元
-	);
+  context.subscriptions.push(
+    generateProvider(
+      '**/O[0-9][0-9][0-9][0-9]',
+      OTemplate,
+    )
+  );
+  
+  context.subscriptions.push(
+    generateProvider(
+      '**/M[0-9][0-9][0-9][0-9]',
+      MTemplate,
+    )
+  );
 
-  // 訂閱指令
-  context.subscriptions.push(provider);
+  context.subscriptions.push(
+    generateProvider(
+      '**/T[0-9][0-9][0-9][0-9]',
+      TTemplate,
+    )
+  );
+
+  context.subscriptions.push(
+    generateProvider(
+      '**/{G[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}',
+      GTemplate,
+    )
+  );
+
+  context.subscriptions.push(
+    generateProvider(
+      '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
+      GCODE_COMMANDS, 
+    )
+  );
 }
 
 /**

@@ -9,7 +9,7 @@ const generateProvider = (pattern: string, commands: Object, triggerSymbol: stri
             
             for (const [code, details] of Object.entries(commands)) {
                 const item = new vscode.CompletionItem(code, vscode.CompletionItemKind.Snippet);
-                item.detail = details.label;
+                item.detail = details.label ?? code;
                 item.insertText = new vscode.SnippetString(details.snippet);
                 item.documentation = new vscode.MarkdownString(details.description);
                 completionItems.push(item);

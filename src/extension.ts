@@ -5,7 +5,7 @@ import {
   TTemplate,
   OTemplate,
 } from "./macroTemplate";
-import { GCODE_COMMANDS } from "./gCodeCommands";
+import { GCODE_COMMANDS_C_TYPE } from "./gCodeCommands";
 import { generateProvider } from "./completionProvider";
 
 /**
@@ -44,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
-      GCODE_COMMANDS, 
+      GCODE_COMMANDS_C_TYPE, 
     )
   );
 }

@@ -1,12 +1,3 @@
-
-const GCODE_COMMANDS_MILL = {
-
-};
-
-const GCODE_COMMANDS_LATHE_A = {
-
-};
-
 const GCODE_COMMANDS_LATHE_C = {
     'G00 直線快速定位(C-Type)': {
         description: `G00 X(U)__ Z(W)__ [ P1 F1=__ ]\n
@@ -117,7 +108,5 @@ const GCODE_COMMANDS_LATHE_C = {
 };
 
 export {
-    GCODE_COMMANDS_MILL,
-    GCODE_COMMANDS_LATHE_A,
     GCODE_COMMANDS_LATHE_C
 };

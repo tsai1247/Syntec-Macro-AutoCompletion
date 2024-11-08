@@ -1,25 +1,29 @@
 const GCODE_COMMANDS_LATHE_C = {
     'G00 直線快速定位(C-Type)': {
-        description: `G00 X(U)__ Z(W)__ [ P1 F1=__ ]\n
+        description: `G00 X(U)__ Y(V)__ Z(W)__ [ P1 F1=__ ]\n
 * X: X軸座標\n
 * U: X軸增量座標\n
+* Y: Y軸座標\n
+* V: Y軸增量座標\n
 * Z: Z軸座標\n
 * W: Z軸增量座標\n
 * P1: 是否指定進給速率\n
 * F1: 進給速率(單位: mm/min or inch/min，不可為0)
 `,
-        snippet: 'G00 ${1|X,U|}${2:0.0} ${3|Z,W|}${4:0.0} ${5:P1 F1=${6:100}};',
+        snippet: 'G00 ${1|X,U|}${2:0.0} ${3|Y,V|}${4:0.0} ${5|Z,W|}${6:0.0} ${7:P1 F1=${8:100}};',
         ref: 'https://confluence.syntecclub.com/pages/viewpage.action?pageId=156844411',
     },
     'G01 直線切削(C-Type)': {
-        description: `G01 X(U)__ Z(W)__ F__\n
+        description: `G01 X(U)__ Y(V)__ Z(W)__ F__\n
 * X: X軸座標\n
 * U: X軸增量座標\n
+* Y: Y軸座標\n
+* V: Y軸增量座標\n
 * Z: Z軸座標\n
 * W: Z軸增量座標\n
 * F: 進給速率(單位: mm/min or inch/min，不可為0)
 `,
-        snippet: 'G01 ${1|X,U|}${2:0.0} ${3|Z,W|}${4:0.0} F${5:100};',
+        snippet: 'G01 ${1|X,U|}${2:0.0} ${3|Y,V|}${4:0.0} ${5|Z,W|}${6:0.0} F${7:100};',
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575145',
     },
     'G02 圓弧切削(順時針)(C-Type)': {

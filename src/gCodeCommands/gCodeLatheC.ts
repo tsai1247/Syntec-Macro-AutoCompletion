@@ -99,13 +99,105 @@ const GCODE_COMMANDS_LATHE_C = {
         snippet: 'G21 ${1|X,U|}${2:0.0} ${3|Z,W|}${4:0.0} H${5:4} F${6:1.0} ${7:R${8:0.0}};',
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575213',
     },
-    'G90 絕對座標模式(C-Type)': {
+    'G50 取消比例功能': {
         description: '模態G碼',
-        snippet: 'G90;'
+        snippet: 'G50;',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=163156090',
     },
-    'G91 相對座標模式(C-Type)': {
+    'G51 等比例縮放': {
+        description: `G51 X__ Y__ Z__ P__\n
+* X: 中心X軸座標\n
+* Y: 中心Y軸座標\n
+* Z: 中心Z軸座標\n
+* P: 縮放比例
+`,
+        snippet: 'G51 X${1:0.0} Y${2:0.0} Z${3:0.0} P${4:1.0};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=163156090',
+    },
+    'G51 非等比例縮放': {
+        description: `G51 X__ Y__ Z__ I__ J__ K__\n
+* X: 中心X軸座標\n
+* Y: 中心Y軸座標\n
+* Z: 中心Z軸座標\n
+* I: X軸縮放比例\n
+* J: Y軸縮放比例\n
+* K: Z軸縮放比例
+`,
+        snippet: 'G51 X${1:0.0} Y${2:0.0} Z${3:0.0} I${4:1.0} J${5:1.0} K${6:1.0};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=163156090',
+    },
+    'G52 局部座標系設定(C-Type)': {
+        description: `[G54~59.9] G52 X__ Y__ Z__\n
+* G54~59.9: 局部座標系要建立在哪個工作座標系統上
+    * 當前免填\n
+* X: X軸座標\n
+* Y: Y軸座標\n
+* Z: Z軸座標\n
+* X、Z座標皆為0時，關閉局部座標系
+`,
+        snippet: '${1:G${2:54} }G52 X${3:0.0} Y${4:0.0} Z${5:0.0};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575270',
+    },
+    'G53 機械座標定位(C-Type)': {
+        description: `G53 X__ Y__ Z__\n
+* X: X軸座標\n
+* Y: Y軸座標\n
+* Z: Z軸座標
+`,
+        snippet: 'G53 X${1:0.0} Y${2:0.0} Z${3:0.0};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575435',
+    },
+    'G54~59.9 工作座標系設定(C-Type)': {
+        description: `G54~59.9 [X__ Y__ Z__]\n
+* G54~59.9: 選擇工作座標系
+* X: 切換座標厚移動至指定X軸座標
+* Y: 切換座標厚移動至指定Y軸座標
+* Z: 切換座標厚移動至指定Z軸座標
+`,
+        snippet: 'G${1|54,55,56,57,58,59,59.1,59.2,59.3,59.4,59.5,59.6,59.7,59.8,59.9|} ${2:X${3:0.0} Y${4:0.0} Z${5:0.0}};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575442',
+    },
+    'G65 單節巨集程序呼叫(C-Type)': {
+        description: `G65 P__ L__\n
+* P: 巨集程序編號\n
+    * 以O開頭的程式\n
+* L: 重複執行次數
+`,
+        snippet: 'G65 P${1:10} L${2:1};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575447',
+    },
+    'G66 多節巨集程序呼叫(C-Type)': {
+        description: `G66 P__ L__\n
+* P: 巨集程序編號\n
+    * 以O開頭的程式\n
+* L: 重複執行次數
+* 直到G67呼叫為止，每單節都會執行巨集程序
+`,
+        snippet: `G66 P\${1:10} L\${2:1};
+$0\n
+G67;
+`,
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575452',
+    },
+    'G67 多節巨集程序結束(C-Type)': {
         description: '模態G碼',
-        snippet: 'G91;'
+        snippet: 'G67;',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575452',
+    },
+    'G70/G71 英制單位設定(C-Type)': {
+        description: `G70/G71\n
+* G70: 設定為英制單位\n
+* G71: 設定為公制單位
+`,
+        snippet: '${1|G70,G71|};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575479',
+    },
+    'G90/G91 絕對/相對座標模式(C-Type)': {
+        description: `G91/G91\n
+* G90: 絕對座標模式\n
+* G91: 相對座標模式
+`,
+        snippet: '${1|G90,G91|};',
     },
     'G92 座標系設定(C-Type)': {
         description: `G92 X__ Z__\n

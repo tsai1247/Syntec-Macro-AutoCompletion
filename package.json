@@ -2,7 +2,7 @@
   "name": "vscode-syntec-macro-auto-completion",
   "displayName": "vscode-syntec-macro-auto-completion",
   "description": "An auto-compleatetion extension for G and O files.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "engines": {
     "vscode": "^1.86.0"
   },

@@ -1,6 +1,6 @@
 const GCODE_COMMANDS_LATHE_C = {
     'G00 直線快速定位(C-Type)': {
-        description: `G00 X(U)__ Y(V)__ Z(W)__ [ P1 F1=__ ]\n
+        description: `G00 X(U)__ Y(V)__ Z(W)__ [P1 F1=__ ]\n
 * X: X軸座標\n
 * U: X軸增量座標\n
 * Y: Y軸座標\n
@@ -10,7 +10,7 @@ const GCODE_COMMANDS_LATHE_C = {
 * P1: 是否指定進給速率\n
 * F1: 進給速率(單位: mm/min or inch/min，不可為0)
 `,
-        snippet: 'G00 ${1|X,U|}${2:0.0} ${3|Y,V|}${4:0.0} ${5|Z,W|}${6:0.0} ${7:P1 F1=${8:100}};',
+        snippet: 'G00 ${1|X,U|}${2:0.0} ${3|Y,V|}${4:0.0} ${5|Z,W|}${6:0.0}${7: P1 F1=${8:100}};',
         ref: 'https://confluence.syntecclub.com/pages/viewpage.action?pageId=156844411',
     },
     'G01 直線切削(C-Type)': {
@@ -100,7 +100,7 @@ const GCODE_COMMANDS_LATHE_C = {
 * F: 螺距\n
 * R: 錐度差異量(選填)
 `,
-        snippet: 'G21 ${1|X,U|}${2:0.0} ${3|Z,W|}${4:0.0} H${5:4} F${6:1.0} ${7:R${8:0.0}};',
+        snippet: 'G21 ${1|X,U|}${2:0.0} ${3|Z,W|}${4:0.0} H${5:4} F${6:1.0}${7: R${8:0.0}};',
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575213',
     },
     'G50 取消比例功能': {
@@ -158,7 +158,7 @@ const GCODE_COMMANDS_LATHE_C = {
 * Y: 切換座標厚移動至指定Y軸座標
 * Z: 切換座標厚移動至指定Z軸座標
 `,
-        snippet: 'G${1|54,55,56,57,58,59,59.1,59.2,59.3,59.4,59.5,59.6,59.7,59.8,59.9|} ${2:X${3:0.0} Y${4:0.0} Z${5:0.0}};',
+        snippet: 'G${1|54,55,56,57,58,59,59.1,59.2,59.3,59.4,59.5,59.6,59.7,59.8,59.9|}${2: X${3:0.0} Y${4:0.0} Z${5:0.0}};',
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575442',
     },
     'G65 單節巨集程序呼叫(C-Type)': {

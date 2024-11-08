@@ -205,12 +205,13 @@ G67;
         snippet: '${1|G90,G91|};',
     },
     'G92 座標系設定(C-Type)': {
-        description: `G92 X__ Z__\n
+        description: `G92 X__ Y__ Z__\n
 * X: X軸座標\n
+* Y: Y軸座標\n
 * Z: Z軸座標
 * 用於設定座標系統，不會移動機床
 `,
-        snippet: 'G92 X${1:0.0} Z${2:0.0};'
+        snippet: 'G92 X${1:0.0} Y${2:0.0} Z${3:0.0};',
     },
     'G92 主軸最高轉速限制(C-Type)': {
         description: `G92 S__\n

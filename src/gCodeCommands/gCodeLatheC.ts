@@ -192,6 +192,11 @@ G67;
         snippet: '${1|G70,G71|};',
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575479',
     },
+    'G80 取消鑽孔循環(C-Type)': {
+        description: '取消鑽孔循璃模態',
+        snippet: 'G80;',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575560',
+    },
     'G90/G91 絕對/相對座標模式(C-Type)': {
         description: `G91/G91\n
 * G90: 絕對座標模式\n

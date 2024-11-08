@@ -23,7 +23,6 @@ const GCODE_COMMANDS_LATHE_C = {
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575145',
     },
     'G02 圓弧切削(順時針)(C-Type)': {
-        label: 'G02 圓弧切削(順時針)',
         description: `G02 X(U)__ Z(W)__ R__ F__\n
 * X: X軸座標\n
 * U: X軸增量座標\n
@@ -36,7 +35,6 @@ const GCODE_COMMANDS_LATHE_C = {
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575163',
     },
     'G03 圓弧切削(逆時針)(C-Type)': {
-        label: 'G03 圓弧切削(逆時針)',
         description: `G02 X(U)__ Z(W)__ R__ F__\n
 * X: X軸座標\n
 * U: X軸增量座標\n
@@ -49,7 +47,6 @@ const GCODE_COMMANDS_LATHE_C = {
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575163',
     },
     'G02/G03 圓弧切削(360°)(C-Type)': {
-        label: 'G02/G03 圓弧切削(360°)',
         description: `G02 X(U)__ Z(W)__ I__ K__ F__\n
 * X: X軸座標\n
 * U: X軸增量座標\n
@@ -89,13 +86,38 @@ const GCODE_COMMANDS_LATHE_C = {
         description: '模態G碼',
         snippet: 'G19;'
     },
-    'G90 絕對座標模式': {
+    'G21 螺紋車削循環(C-Type)': {
+        description: `G21 X(U)__ Z(W)__ H__ F__ [R__]\n
+* X: X軸座標\n
+* U: X軸增量座標\n
+* Z: Z軸座標\n
+* W: Z軸增量座標\n
+* H: 多牙嘴個數\n
+* F: 螺距\n
+* R: 錐度差異量(選填)
+`,
+        snippet: 'G21 ${1|X,U|}${2:0.0} ${3|Z,W|}${4:0.0} H${5:4} F${6:1.0} ${7:R${8:0.0}};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575213',
+    },
+    'G90 絕對座標模式(C-Type)': {
         description: '模態G碼',
         snippet: 'G90;'
     },
-    'G91 相對座標模式': {
+    'G91 相對座標模式(C-Type)': {
         description: '模態G碼',
         snippet: 'G91;'
+    },
+    'G94 每分鐘進給(C-Type)': {
+        description: `G94 F__\n
+* F: 進給速率(單位: mm/min or inch/min，不可為0)
+`,
+        snippet: 'G94 F${1:100};'
+    },
+    'G95 每轉進給(C-Type)': {
+        description: `G95 F__\n
+* F: 進給速率(單位: mm/rev or inch/rev，不可為0)
+`,
+        snippet: 'G95 F${1:0.5};'
     },
     'X 軸座標': {
         description: '以當前模態移動X軸座標',

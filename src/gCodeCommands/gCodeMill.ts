@@ -1,4 +1,20 @@
 const GCODE_COMMANDS_MILL = {
+    'G73 高速啄式鑽孔循環': {
+        description: `G73 X__ Y__ Z__ R__ Q__ F__ K__\n
+* X: 終點X軸座標\n
+* Y: 終點Y軸座標\n
+* Z: 終點Z軸座標\n
+* R: R點鑽孔軸座標(鑽孔開始處)\n
+* Q: 刀具在洞底的位移量\n
+* F: 進給速率(單位: mm/min or inch/min，不可為0)\n
+* K: 重複次數\n
+* 多節執行，直到輸入G80指令
+`,
+        snippet: `G73 X\${1:0.0} Y\${2:0.0} Z\${3:0.0} R\${4:0.0} Q\${5:0.0} F\${6:100} K\${7:1};
+$0\n
+G80;`,
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962032',
+    },
     'G76 精細塘孔循環': {
         description: `G76 X__ Y__ Z__ R__ Q__ P__ F__ K__\n
 * X: 終點X軸座標\n
@@ -15,6 +31,11 @@ const GCODE_COMMANDS_MILL = {
 $0\n
 G80;`,
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962025',
+    },
+    'G80 取消鑽孔循環(C-Type)': {
+        description: '取消鑽孔循璃模態',
+        snippet: 'G80;',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575560',
     },
     'G81 鑽孔循環': {
         description: `G81 X__ Y__ Z__ R__ F__ [F2=__] K__ Q__\n
@@ -50,7 +71,16 @@ G80;`,
 $0\n
 G80;`,
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962015',
-    }
+    },
+    'G98/G99 鑽孔復歸位置': {
+        description: `G98/G99\n
+* G98: 回到初始平面\n
+* G99: 回到R點
+`,
+        snippet: '${1|G98,G99|};',
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=572130281',
+    },
+
 };
 
 export {

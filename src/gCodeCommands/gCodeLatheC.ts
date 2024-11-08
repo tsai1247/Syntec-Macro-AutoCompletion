@@ -107,6 +107,20 @@ const GCODE_COMMANDS_LATHE_C = {
         description: '模態G碼',
         snippet: 'G91;'
     },
+    'G92 座標系設定(C-Type)': {
+        description: `G92 X__ Z__\n
+* X: X軸座標\n
+* Z: Z軸座標
+* 用於設定座標系統，不會移動機床
+`,
+        snippet: 'G92 X${1:0.0} Z${2:0.0};'
+    },
+    'G92 主軸最高轉速限制(C-Type)': {
+        description: `G92 S__\n
+* S: 主軸轉速(單位: rpm)
+`,
+        snippet: 'G92 S${1:1000};'
+    },
     'G94 每分鐘進給(C-Type)': {
         description: `G94 F__\n
 * F: 進給速率(單位: mm/min or inch/min，不可為0)
@@ -118,6 +132,20 @@ const GCODE_COMMANDS_LATHE_C = {
 * F: 進給速率(單位: mm/rev or inch/rev，不可為0)
 `,
         snippet: 'G95 F${1:0.5};'
+    },
+    'G96 恆定表面速度(C-Type)': {
+        description: `G96 S__ M03/04\n
+* S: 表面速度(單位: m/min)\n
+* M03/04: 主軸轉向
+`,
+        snippet: 'G96 S${1:100} M${2|03,04|};'
+    },
+    'G97 恆定轉速(C-Type)': {
+        description: `G97 S__ M03/04\n
+* S: 主軸轉速(單位: rpm)\n
+* M03/04: 主軸轉向
+`,
+        snippet: 'G97 S${1:1000} M${2|03,04|};'
     },
     'X 軸座標': {
         description: '以當前模態移動X軸座標',

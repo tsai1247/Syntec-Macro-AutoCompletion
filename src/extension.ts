@@ -11,6 +11,7 @@ import {
   GCODE_COMMANDS_LATHE_C,
 } from "./gCodeCommands";
 import { MCODE_COMMANDS } from "./mCodeCommands";
+import { OTHER_CODE_COMMANDS } from "./otherCodeCommands";
 import { generateProvider } from "./completionProvider";
 
 /**
@@ -71,6 +72,13 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       MCODE_COMMANDS, 
+    )
+  );
+
+  context.subscriptions.push(
+    generateProvider(
+      '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
+      OTHER_CODE_COMMANDS, 
     )
   );
 

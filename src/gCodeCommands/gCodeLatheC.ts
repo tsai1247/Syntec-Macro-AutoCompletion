@@ -75,15 +75,15 @@ const GCODE_COMMANDS_LATHE_C = {
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=58575167',
     },
     'G17 工作平面設定(X-Y)(C-Type)': {
-        description: '模態G碼',
+        description: '定位平面XY，鑽孔軸為Z軸',
         snippet: 'G17;'
     },
-    'G18 工作平面設定(X-Z)(C-Type)': {
-        description: '模態G碼，預設',
+    'G18 工作平面設定(Z-X)(C-Type)': {
+        description: '定位平面ZX，鑽孔軸為Y軸',
         snippet: 'G18;'
     },
     'G19 工作平面設定(Y-Z)(C-Type)': {
-        description: '模態G碼',
+        description: '定位平面YZ，鑽孔軸為X軸',
         snippet: 'G19;'
     },
     'G21 螺紋車削循環(C-Type)': {

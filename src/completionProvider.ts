@@ -16,7 +16,8 @@ const generateProvider = (pattern: string, commands: Object, triggerSymbol: stri
                 // check last is ; or not
                 const endOfMacro = details.snippet.slice(-1) === ';' ? '' : ';';
                 item.documentation = new vscode.MarkdownString(
-                    `${details.description}\n${details.ref ? refDetails : ''}${endOfMacro}`
+                    `${details.description}\n
+${details.ref ? refDetails : ''}${endOfMacro}`
                 );
                 completionItems.push(item);
             }

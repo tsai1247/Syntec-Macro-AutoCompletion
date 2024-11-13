@@ -55,6 +55,36 @@ $0\n
 G80;`,
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962022',
     },
+    'G82 孔底暫停鑽孔循環': {
+        description: `G82 X__ Y__ Z__ R__ P__ F__ K__ Q__\n
+* X: 終點X軸座標\n
+* Y: 終點Y軸座標\n
+* Z: 終點Z軸座標\n
+* R: R點鑽孔軸座標(鑽孔開始處)\n
+* P: 刀具在洞底的停留時間\n
+* F: 進給速率(單位: mm/min or inch/min，不可為0)\n
+* K: 重複次數\n
+`,
+        snippet: `G82 X\${1:0.0} Y\${2:0.0} Z\${3:0.0} R\${4:0.0} P\${5:0.0} F\${6:100} K\${7:1} Q\${8:0.0};
+$0\n
+G80;`,
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962020',
+    },
+    'G83 啄式鑽孔循環': {
+        description: `G83 X__ Y__ Z__ R__ Q__ F__ K__\n
+* X: 終點X軸座標\n
+* Y: 終點Y軸座標\n
+* Z: 終點Z軸座標\n
+* R: R點鑽孔軸座標(鑽孔開始處)\n
+* Q: 每次進給深度\n
+* F: 進給速率(單位: mm/min or inch/min，不可為0)\n
+* K: 重複次數\n
+`,
+        snippet: `G83 X\${1:0.0} Y\${2:0.0} Z\${3:0.0} R\${4:0.0} Q\${5:0.0} F\${6:100} K\${7:1};
+$0\n
+G80;`,
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962017',
+    },
     'G84 攻牙循環': {
         description: `G84 X__ Y__ Z__ R__ P__ Q__ [F__ or E__] K__\n
 * X: 終點X軸座標\n
@@ -71,6 +101,20 @@ G80;`,
 $0\n
 G80;`,
         ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962015',
+    },
+    'G86 高速鑽孔循環': {
+        description: `G86 X__ Y__ Z__ R__ F__ K__\n
+* X: 終點X軸座標\n
+* Y: 終點Y軸座標\n
+* Z: 終點Z軸座標\n
+* R: R點鑽孔軸座標(鑽孔開始處)\n
+* F: 進給速率(單位: mm/min or inch/min，不可為0)\n
+* K: 重複次數\n
+`,
+        snippet: `G86 X\${1:0.0} Y\${2:0.0} Z\${3:0.0} R\${4:0.0} F\${5:100} K\${6:1};
+$0\n
+G80;`,
+        ref: 'https://confluence.syntecclub.com/pages/releaseview.action?pageId=17962012',
     },
     'G98/G99 鑽孔復歸位置': {
         description: `G98/G99\n

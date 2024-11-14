@@ -13,6 +13,7 @@ import {
 import { MCODE_COMMANDS } from "./mCodeCommands";
 import { OTHER_CODE_COMMANDS } from "./otherCodeCommands";
 import { generateProvider } from "./completionProvider";
+import { MacroFunctions, MacroStatements } from "./macroNativeTemplate";
 import { globalVariables, localVariables } from "./variableTemplate";
 
 /**
@@ -82,6 +83,21 @@ export function activate(context: vscode.ExtensionContext) {
       OTHER_CODE_COMMANDS, 
     )
   );
+
+  context.subscriptions.push(
+    generateProvider(
+      '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
+      MacroStatements, 
+    )
+  );
+
+  context.subscriptions.push(
+    generateProvider(
+      '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
+      MacroFunctions, 
+    )
+  );
+
   context.subscriptions.push(
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 

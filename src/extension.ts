@@ -13,6 +13,7 @@ import {
 import { MCODE_COMMANDS } from "./mCodeCommands";
 import { OTHER_CODE_COMMANDS } from "./otherCodeCommands";
 import { generateProvider } from "./completionProvider";
+import { globalVariables, localVariables } from "./variableTemplate";
 
 /**
  * 啟用插件
@@ -81,7 +82,21 @@ export function activate(context: vscode.ExtensionContext) {
       OTHER_CODE_COMMANDS, 
     )
   );
+  context.subscriptions.push(
+    generateProvider(
+      '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
+      localVariables, 
+      '#'
+    )
+  );
 
+  context.subscriptions.push(
+    generateProvider(
+      '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
+      globalVariables, 
+      '@'
+    )
+  );
 }
 
 /**

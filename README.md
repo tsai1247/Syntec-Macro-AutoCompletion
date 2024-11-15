@@ -49,6 +49,16 @@ SyntecMacroAutoCompletion/
     └─  webpack.config.js ---------------- webpack 配置
 ```
 
+## 版本資訊
+* v1.0.0: template for O/G files
+* v1.1.0: template support M/T files now
+* v1.2.0: detailed template
+* v1.3.0: basic standard G Code auto-completion for Lathe
+* v1.4.0: advanced statndard G Code auto-completion for Lathe
+* v1.5.0: basic statndard G Code auto-completion for Mill
+* v1.6.0: variable table and basic macro function auto-completion
+* v1.7.0(expected): advanced macro function auto-completion
+
 ## 許願清單
 
 1. 偵測更多自動補完關鍵字

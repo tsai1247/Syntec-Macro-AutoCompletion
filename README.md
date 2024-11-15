@@ -57,7 +57,7 @@ SyntecMacroAutoCompletion/
 * v1.4.0: advanced statndard G Code auto-completion for Lathe
 * v1.5.0: basic statndard G Code auto-completion for Mill
 * v1.6.0: variable table and basic macro function auto-completion
-* v1.7.0(expected): advanced macro function auto-completion
+* v1.7.0: advanced macro function auto-completion
 
 ## 許願清單
 

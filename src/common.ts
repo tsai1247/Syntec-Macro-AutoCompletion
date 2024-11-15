@@ -75,7 +75,7 @@ async function executeCommand(command: string, cwd: string): Promise<boolean> {
 
 // 取得檔案名稱（不含路徑）
 function getFileName(fullPath: string): string {
-  return fullPath.split(/[\\/]/).pop() || '';
+  return fullPath.split(/[\\/]/).pop() ?? '';
 }
 
 export {

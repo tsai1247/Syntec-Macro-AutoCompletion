@@ -25,6 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/O[0-9][0-9][0-9][0-9]',
       OTemplate,
+      vscode.CompletionItemKind.Field,
     )
   );
   
@@ -32,6 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/M[0-9][0-9][0-9][0-9]',
       MTemplate,
+      vscode.CompletionItemKind.Field,
     )
   );
 
@@ -39,6 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/T[0-9][0-9][0-9][0-9]',
       TTemplate,
+      vscode.CompletionItemKind.Field,
     )
   );
 
@@ -46,6 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{G[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}',
       GTemplate,
+      vscode.CompletionItemKind.Field,
     )
   );
 
@@ -53,6 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       GCODE_COMMANDS_LATHE_A, 
+      vscode.CompletionItemKind.Event,
     )
   );
 
@@ -60,6 +65,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       GCODE_COMMANDS_LATHE_C, 
+      vscode.CompletionItemKind.Event,
     )
   );
 
@@ -67,6 +73,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       GCODE_COMMANDS_MILL, 
+      vscode.CompletionItemKind.Event,
     )
   );
   
@@ -74,6 +81,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       MCODE_COMMANDS, 
+      vscode.CompletionItemKind.Property,
     )
   );
 
@@ -81,6 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       OTHER_CODE_COMMANDS, 
+      vscode.CompletionItemKind.Property,
     )
   );
 
@@ -88,6 +97,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       MacroStatements, 
+      vscode.CompletionItemKind.Module,
     )
   );
 
@@ -95,6 +105,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       MacroFunctions, 
+      vscode.CompletionItemKind.Function,
     )
   );
 
@@ -102,6 +113,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       localVariables, 
+      vscode.CompletionItemKind.Value,
       '#'
     )
   );
@@ -110,6 +122,7 @@ export function activate(context: vscode.ExtensionContext) {
     generateProvider(
       '**/{[GMT][0-9][0-9][0-9][0-9],O[0-9][0-9][0-9][0-9],G[0-9][0-9][0-9][0-9][0-9][0-9]}', 
       globalVariables, 
+      vscode.CompletionItemKind.Value,
       '@'
     )
   );

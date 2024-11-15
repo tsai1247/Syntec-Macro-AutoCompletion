@@ -1,6 +1,8 @@
 import * as vscode from "vscode";
 
-const generateProvider = (pattern: string, commands: Object, triggerSymbol: string = '') => vscode.languages.registerCompletionItemProvider(
+const generateProvider = (pattern: string, commands: Object, 
+        kind: vscode.CompletionItemKind = vscode.CompletionItemKind.Snippet, 
+        triggerSymbol: string = '') => vscode.languages.registerCompletionItemProvider(
     { pattern: pattern },
     {
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
@@ -11,6 +13,8 @@ const generateProvider = (pattern: string, commands: Object, triggerSymbol: stri
                 const item = new vscode.CompletionItem(code, vscode.CompletionItemKind.Snippet);
                 item.detail = details.label ?? code;
                 item.insertText = new vscode.SnippetString(details.snippet);
+                item.kind = kind;
+
                 const refDetails = `ref: ${details.ref}`;
 
                 // check last is ; or not
